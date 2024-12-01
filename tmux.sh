@@ -5,12 +5,17 @@ echo "Making backup of .bashrc ..."
 cp ~/.bashrc ~/.bashrc.bak
 echo "Done"
 
+if ! command -v tmux &>/dev/null; then
+    echo "Installing tmux ..."
+    sudo apt install -y tmux
+fi
+
 
 if dpkg -s xclip &>/dev/null; then
   echo "xclip is already installed."
 else
 echo "Installing xclip ..."
-sudo apt install xclip
+sudo apt install -y xclip
 fi
 echo "Done"
 
